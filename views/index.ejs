@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ExpressJS</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+ 
+</head>
+
+<body>
+  
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-xs-12 col-sm-9 search-result" >
+                <h2>list san pham</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ma san pham</th>
+                            <th>ten san pham</th>
+                            <th>gia</th>
+                            <th>so luong</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                           
+                    <% sanpham.forEach(function (sp, idx) { %>
+                        <tr>
+                           
+                            <td>
+                                <%- sp.maSanPham %>
+                            </td>
+                            <td>
+                                <%- sp.tenSanPham %>
+                            </td>
+                            <td>
+                                <%- sp.gia %>
+                            </td>
+    
+                            <td>
+                                <%- sp.soLuong %>
+                            </td>      
+                            <td>
+                                <a href="/sanpham/delete/<%- sp.maSanPham %>" >Delete</a>
+                            </td>                  
+                        </tr>
+                        
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+            
+      </div>
+      <div>
+        <form action="./sanpham/add" method="post">
+        <label for="">ma san pham: </label><input type="text" name="txtma" placeholder="nhap ma"/><br/>
+        <label for="">ten san pham: </label><input type="text" name="txtname" placeholder="nhap ten"/><br/>
+        <label for="">so luong: </label><input type="text" name="txtsl" placeholder="nhap so luong"/><br/>
+        <label for="">gia: </label><input type="text" name="txtgia" placeholder="nhap gia"/><br/>
+        <input type="submit" value="add san pham"/>
+        </form>
+
+   </div>
+      </div>
+      
+     
+</body>
+
+</html>
